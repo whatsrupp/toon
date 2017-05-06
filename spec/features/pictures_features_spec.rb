@@ -11,7 +11,7 @@ feature 'Pictures' do
 
   context 'uploading a picture' do
     after(:each) do
-      File.delete(Rails.root.join('public', 'uploads', 'test_image.png'))
+      File.delete(Rails.root.join('app','assets','images','uploads', 'test_image.png'))
     end
 
     scenario 'user uploads a picture and submits ' do
