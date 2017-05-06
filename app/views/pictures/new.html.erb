@@ -1,0 +1,9 @@
+<div class= 'form-container'>
+  <%= form_for @picture do |f| %>
+    <%= f.label :caption, 'Caption' %>
+    <%= f.text_field :caption %>
+    <%= f.label :image, 'Upload Picture' %>
+    <%= f.file_field :image %>
+    <%= f.submit "Post" %>
+  <%end%>
+</div>

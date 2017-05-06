@@ -1,4 +1,10 @@
 <div id='picture-index-page-wrapper'>
+  <a id='add-picture-link' href='pictures/new'>Add a Picture</a>
+  <%@pictures.each do |picture|%>
+    <div class="picture-container">
+        <%= image_tag("uploads/#{picture.file_path}", :class => "img_preview") %>
+    </div>
+
+  <%end%>
   <h1 id='no-pictures-title'>No Pictures Yet</h1>
-  <a id='add-picture-link' href='#'>Add a Picture</a>
 </div>

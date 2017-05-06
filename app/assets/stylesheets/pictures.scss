@@ -13,10 +13,31 @@
    color: initial;
 }
 #picture-index-page-wrapper{
-  height:100%;
   width:100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items:center;
+}
+
+.form-container{
+  height:100%;
+  width:100%;
+}
+
+.new_picture {
+  margin:auto;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+}
+.new_picture > input {
+  font-size: 15px;
+}
+
+.img_preview{
+  width:100%
 }
