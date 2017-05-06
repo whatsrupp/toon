@@ -1,24 +1,4 @@
-# README
+# Toon ![alt text](https://travis-ci.org/whatsrupp/toon.svg?branch=master 'travis stamp')
+## An Instagram knock-off for doodlers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Not really too much to say about this at the moment, other than capybara testing file uploads is proving to be horrific.
