@@ -14,18 +14,34 @@ feature 'Pictures' do
       File.delete(Rails.root.join('app','assets','images','uploads', 'test_image.png'))
     end
 
-    xscenario 'user uploads a picture and submits ' do
+    scenario 'user uploads a picture and it saves to the assets folder' do
       visit '/pictures'
       click_link 'Add a Picture'
       expect(current_path).to eq('/pictures/new')
       attach_file("Upload Picture", Rails.root + "spec/assets/test_image.png")
       fill_in('Caption', with: 'Sick Smiley')
       click_button('Post')
-      expect(page).to have_xpath('//img')
+      # expect(page).to have_xpath('//img')
     end
   end
 
+
+
   context 'Pictures are uploaded' do
+
+    after(:each) do
+      File.delete(Rails.root.join('app','assets','images','uploads','test_image.png'))
+    end
+
+    scenario 'user clicks through to individual image' do
+      visit '/pictures'
+      click_link 'Add a Picture'
+      attach_file('Upload Picture', Rails.root + 'spec/assets/test_image.png')
+      fill_in('Caption', with: 'Yo')
+      click_button 'Post'
+    end
+
+
     # before do
     #   attach_file("Upload Your File", Rails.root + "spec/assets/file.pdf")
     #   Picture.create()

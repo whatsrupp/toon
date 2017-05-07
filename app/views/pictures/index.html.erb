@@ -2,7 +2,7 @@
   <a id='add-picture-link' href='pictures/new'>Add a Picture</a>
   <%@pictures.each do |picture|%>
     <div class="picture-container">
-        <%= image_tag("uploads/#{picture.file_path}", :class => "img_preview") %>
+        <%= image_tag("#{picture.file_path}", :class => "img_preview") %>
     </div>
 
   <%end%>

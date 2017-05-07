@@ -13,6 +13,7 @@ class PicturesController < ApplicationController
     picture = Picture.new(file_path: saved_file_name,
                           caption: reviewed_params[:caption] )
     picture.save
+
     redirect_to pictures_path
   end
 
