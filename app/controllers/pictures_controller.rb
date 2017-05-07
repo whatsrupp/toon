@@ -26,6 +26,9 @@ class PicturesController < ApplicationController
     return uploaded_io.original_filename
   end
 
+  def show
+    @picture = Picture.find(params[:id])
+  end
   private
 
   def review_params

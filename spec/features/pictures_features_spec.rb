@@ -39,6 +39,7 @@ feature 'Pictures' do
     scenario 'pictures are uploaded with a reference to their Database index' do
 
     end
+
     scenario 'user comments on an image' do
       caption = 'Hello there'
       comment = 'Yo'
@@ -62,6 +63,15 @@ feature 'Pictures' do
       expect(page).to have_content('Likes: 1')
     end
 
+    scenario 'user clicks through on an image' do
+      caption = 'Hello there'
+      upload_a_picture(caption: caption)
+      id = Picture.where(caption: caption).first.id
+      click_link "show-picture-#{id}"
+      expect(current_path).to eq("/pictures/#{id}")
+      expect(page).to have_xpath("//img[@id='picture-#{id}']")
+
+    end
 
 
   end

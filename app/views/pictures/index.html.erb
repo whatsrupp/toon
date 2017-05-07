@@ -7,8 +7,10 @@
       </div>
       <%= link_to "Like", new_picture_like_url(picture), :id =>"like-button-#{picture.id}"%>
       <%= link_to "Comment", new_picture_comment_url(picture), :id =>"comment-link-#{picture.id}" %>
+      <%= link_to "Show Picture", picture_url(picture), :id =>"show-picture-#{picture.id}" %>
       <div>Likes: <%=picture.likes.length%></div>
       <div>Comments: <%=picture.comments.first.text if picture.comments.any?%> </div>
+
     <%end%>
   <%else%>
     <h1 id='no-pictures-title'>No Pictures Yet</h1>
