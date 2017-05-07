@@ -2,8 +2,8 @@
   <%= form_for @picture do |f| %>
     <%= f.label :caption, 'Caption' %>
     <%= f.text_field :caption %>
-    <%= f.label :image, 'Upload Picture' %>
-    <%= f.file_field :image %>
+    <%= f.label :thumbnail, 'Upload Picture' %>
+    <%= f.file_field :thumbnail %>
     <%= f.submit "Post" %>
   <%end%>
 </div>

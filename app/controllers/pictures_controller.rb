@@ -9,13 +9,18 @@ class PicturesController < ApplicationController
 
   def create
     reviewed_params = review_params
-    saved_file_name = upload
-    picture = Picture.new(file_path: saved_file_name,
-                          caption: reviewed_params[:caption] )
+    # saved_file_name = upload
+    # picture = Picture.new(file_path: saved_file_name,
+    #                       caption: reviewed_params[:caption] )
+
+  picture = Picture.new(user_params)
     picture.save
 
     redirect_to pictures_path
   end
+
+
+
 
   def upload
     uploaded_io = params[:picture][:image]
@@ -33,5 +38,12 @@ class PicturesController < ApplicationController
 
   def review_params
     params.require(:picture).permit(:caption)
+  end
+
+  # Use strong_parameters for attribute whitelisting
+  # Be sure to update your create() and update() controller methods.
+
+  def user_params
+    params.require(:picture).permit(:thumbnail, :caption)
   end
 end

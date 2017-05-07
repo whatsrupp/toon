@@ -3,7 +3,7 @@
   <%if @pictures.any?%>
     <%@pictures.each do |picture|%>
       <div class="picture-container">
-          <%= image_tag("#{picture.file_path}", :class => "img_preview") %>
+          <%= image_tag picture.thumbnail.url %>
       </div>
       <%= link_to "Like", new_picture_like_url(picture), :id =>"like-button-#{picture.id}"%>
       <%= link_to "Comment", new_picture_comment_url(picture), :id =>"comment-link-#{picture.id}" %>
