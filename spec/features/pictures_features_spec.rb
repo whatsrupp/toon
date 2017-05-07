@@ -32,15 +32,28 @@ feature 'Pictures' do
 
   context 'Pictures are uploaded' do
 
-    after(:each) do
+    before(:each) do
+
     end
 
     scenario 'pictures are uploaded with a reference to their Database index' do
 
     end
+    scenario 'user comments on an image' do
+      caption = 'Hello there'
+      comment = 'Yo'
+      visit('/pictures')
+      expect(page).not_to have_content(comment)
+      upload_a_picture(caption: caption)
+      id = Picture.where(caption: caption).first.id
+      click_link "comment-link-#{id}"
+      fill_in('Comment', with: comment)
+      click_button('Comment')
+      expect(Picture.find(id).comments.length).to eq(1)
+      expect(page).to have_content(comment)
+    end
 
-
-    scenario 'user clicks through to individual image' do
+    scenario 'user likes an image' do
       caption = 'Hello there'
       upload_a_picture(caption: caption)
       id = Picture.where(caption: caption).first.id
@@ -48,6 +61,8 @@ feature 'Pictures' do
       expect(Picture.find(id).likes.length).to eq(1)
       expect(page).to have_content('Likes: 1')
     end
+
+
 
   end
 end
