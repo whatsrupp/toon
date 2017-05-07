@@ -25,6 +25,7 @@ feature 'Pictures' do
     scenario 'user uploads a picture and it saves to the assets folder' do
       upload_a_picture
       expect(page).to have_xpath('//img')
+      expect(page).not_to have_content 'No Pictures Yet'
     end
   end
 
@@ -45,6 +46,7 @@ feature 'Pictures' do
       id = Picture.where(caption: caption).first.id
       click_link "like-button-#{id}"
       expect(Picture.find(id).likes.length).to eq(1)
+      expect(page).to have_content('Likes: 1')
     end
 
   end
