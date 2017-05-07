@@ -27,4 +27,137 @@
 body,html{
   height:100%;
   width:100%;
+  margin:0px;
+}
+body{
+  margin-top: 110px;
+}
+
+#add-picture-link{
+  font-size:14px;
+  font-weight: 600;
+  padding:5px;
+  -webkit-appearance: button;
+   -moz-appearance: button;
+   appearance: button;
+   text-decoration: none;
+   color: initial;
+}
+#picture-index-page-wrapper{
+  margin:auto;
+  margin-top: 60px;
+  width:80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+.form-container{
+  height:100%;
+  width:100%;
+}
+
+.new_picture {
+  margin:auto;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+}
+.new_picture > input {
+  font-size: 15px;
+}
+
+.img_preview{
+  width:100%
+}
+
+.sticky-header{
+  width: 100%;
+  height: 100px;
+  background-color: #FCFCC2;
+  position: fixed;
+  top:0px;
+  z-index:1;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.header-third{
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picture-container{
+
+  width: 99%;
+  margin:auto;
+  padding: 1px;
+}
+
+
+
+.index-image{
+  width:100%;
+}
+.post-image{
+  height:60%
+}
+.post{
+  width: 80%;
+  margin:auto;
+  background-color: yellow;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.post > div {
+  font-size: 14px !important;
+  background-color:green;
+}
+
+.post-info{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+}
+.interaction-div{
+  display: flex;
+  width:100%;
+}
+.interaction-div > a{
+  width:50%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.post-status{
+width:100%;
+display:flex;
+}
+.like-image{
+}
+.comment-image{
+}
+
+.caption-div{
+  width:80%;
+  text-align:left;
+}
+
+.likes-div{
+  width:19%;
+  text-align:right;
+}
+.comments{
+  width:100%;
+  text-align: left;
 }

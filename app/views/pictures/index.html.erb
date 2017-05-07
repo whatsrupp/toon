@@ -1,20 +1,34 @@
 <div id='picture-index-page-wrapper'>
-  <a id='add-picture-link' href='pictures/new'>Add a Picture</a>
   <%if @pictures.any?%>
     <%@pictures.each do |picture|%>
-      <div class="picture-container">
-          <%= image_tag picture.thumbnail.url %>
+    <div class='post'>
+      <div class = 'post-image'>
+        <%= link_to(picture_url(picture), :id =>"show-picture-#{picture.id}", :class => 'show-picture-link') do %>
+          <div class="picture-container">
+              <%= image_tag picture.thumbnail.url, :class => "index-image" %>
+          </div>
+        <%end%>
       </div>
-      <%= link_to "Like", new_picture_like_url(picture), :id =>"like-button-#{picture.id}"%>
-      <%= link_to "Comment", new_picture_comment_url(picture), :id =>"comment-link-#{picture.id}" %>
-      <%= link_to "Show Picture", picture_url(picture), :id =>"show-picture-#{picture.id}" %>
-      <div>Likes: <%=picture.likes.length%></div>
-      <div>Comments: <%=picture.comments.first.text if picture.comments.any?%> </div>
-
+      <div class=post-info>
+        <div class=post-status>
+        <div class='caption-div'>
+          <%= picture.caption %>
+        </div>
+        <div class='likes-div'>Likes: <%=picture.likes.length%></div>
+        </div>
+        <div class='interaction-div'>
+          <%= link_to(new_picture_like_url(picture), :id =>"like-button-#{picture.id}", :class => 'like-button') do%>
+            <div class='like-image'>Like</div>
+          <%end%>
+          <%= link_to(new_picture_comment_url(picture), :id =>"comment-link-#{picture.id}", :class => 'comment-link') do %>
+            <div class='comment-image'>Comment</div>
+          <%end%>
+        </div>
+        <div class='comments'>Comments: <%=picture.comments.first.text if picture.comments.any?%> </div>
+      </div>
+    </div>
     <%end%>
   <%else%>
     <h1 id='no-pictures-title'>No Pictures Yet</h1>
   <%end%>
-
-
 </div>
