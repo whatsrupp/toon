@@ -7,34 +7,36 @@ class PicturesController < ApplicationController
     @picture = Picture.new
   end
 
-  def create
-    reviewed_params = review_params
-    # saved_file_name = upload
-    # picture = Picture.new(file_path: saved_file_name,
-    #                       caption: reviewed_params[:caption] )
+  # def create
+  #
+  #   picture = Picture.new(user_params)
+  #   picture.save
+  #   redirect_to pictures_path
+  # end
 
-  picture = Picture.new(user_params)
-    picture.save
-
-    redirect_to pictures_path
-  end
-
-
-
-
-  def upload
-    uploaded_io = params[:picture][:image]
-    filepath = Rails.root.join('app', 'assets', 'images','uploads', uploaded_io.original_filename)
-    File.open(filepath, 'wb') do |file|
-      file.write(uploaded_io.read)
-    end
-    return uploaded_io.original_filename
-  end
 
   def show
     @picture = Picture.find(params[:id])
   end
+
+  def create
+    @picture = Picture.new(picture_params)
+
+    if @picture.save
+      redirect_to pictures_path
+    else
+      render action: 'new'
+    end
+  end
   private
+
+
+  private
+
+  def picture_params
+    params.require(:picture).permit(:thumbnail, :caption)
+  end
+
 
   def review_params
     params.require(:picture).permit(:caption)

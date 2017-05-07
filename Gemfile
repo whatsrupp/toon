@@ -10,7 +10,7 @@ ruby '2.4.0'
 gem 'envyable'
 gem 'pry'
 gem "paperclip", "~> 5.0.0"
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 2.3'
 
 group :test do
   gem 'rspec-rails'

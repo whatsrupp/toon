@@ -1,9 +1,15 @@
 <div class= 'form-container'>
-  <%= form_for @picture do |f| %>
-    <%= f.label :caption, 'Caption' %>
-    <%= f.text_field :caption %>
-    <%= f.label :thumbnail, 'Upload Picture' %>
-    <%= f.file_field :thumbnail %>
-    <%= f.submit "Post" %>
-  <%end%>
+  <%= form_for(@picture, multipart: true) do |f| %>
+    <div class="field">
+      <%= f.label :caption, 'Caption' %>
+      <%= f.text_field :caption %>
+    </div>
+    <div class="field">
+      <%= f.label :thumbnail %>
+      <%= f.file_field :thumbnail %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Post' %>
+    </div>
+  <% end %>
 </div>
