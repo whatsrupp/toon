@@ -21,7 +21,7 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
-
+    require 'pry'; binding.pry
     if @picture.save
       redirect_to pictures_path
     else
