@@ -9,47 +9,43 @@ feature 'Pictures' do
     end
   end
 
-  context 'uploading a picture' do
-    after(:each) do
-      File.delete(Rails.root.join('app','assets','images','uploads', 'test_image.png'))
-    end
-
-    scenario 'user uploads a picture and it saves to the assets folder' do
+  context 'On the homepage' do
+    scenario 'user wants to add picture' do
       visit '/pictures'
       click_link 'Add a Picture'
       expect(current_path).to eq('/pictures/new')
-      attach_file("Upload Picture", Rails.root + "spec/assets/test_image.png")
-      fill_in('Caption', with: 'Sick Smiley')
-      click_button('Post')
-      # expect(page).to have_xpath('//img')
     end
   end
 
+  context 'uploading a picture' do
+    after(:each) do
+      delete_uploaded_file
+    end
+
+    scenario 'user uploads a picture and it saves to the assets folder' do
+      upload_a_picture
+      expect(page).to have_xpath('//img')
+    end
+  end
 
 
   context 'Pictures are uploaded' do
 
     after(:each) do
-      File.delete(Rails.root.join('app','assets','images','uploads','test_image.png'))
     end
+
+    scenario 'pictures are uploaded with a reference to their Database index' do
+
+    end
+
 
     scenario 'user clicks through to individual image' do
-      visit '/pictures'
-      click_link 'Add a Picture'
-      attach_file('Upload Picture', Rails.root + 'spec/assets/test_image.png')
-      fill_in('Caption', with: 'Yo')
-      click_button 'Post'
+      caption = 'Hello there'
+      upload_a_picture(caption: caption)
+      id = Picture.where(caption: caption).first.id
+      click_link "like-button-#{id}"
+      expect(Picture.find(id).likes.length).to eq(1)
     end
 
-
-    # before do
-    #   attach_file("Upload Your File", Rails.root + "spec/assets/file.pdf")
-    #   Picture.create()
-    # end
-    #
-    # scenario 'user goes to homepage' do
-    #   visit'/pictures'
-    #   expect(page).to have_xpath("//img[contains(@src,'environ-peeling-kuur.jpg')]")
-    # end
   end
 end

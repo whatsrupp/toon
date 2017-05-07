@@ -4,7 +4,7 @@
     <div class="picture-container">
         <%= image_tag("#{picture.file_path}", :class => "img_preview") %>
     </div>
-
+    <%= link_to "Like", new_picture_like_url(picture), :id =>"like-button-#{picture.id}"%>
   <%end%>
   <h1 id='no-pictures-title'>No Pictures Yet</h1>
 </div>
