@@ -1,5 +1,5 @@
 def delete_uploaded_file (filename: 'test_image.png')
-  File.delete(Rails.root.join('app','assets','images','uploads', filename))
+  # File.delete(Rails.root.join('app','assets','images','uploads', filename))
 end
 
 def upload_a_picture(filename: 'test_image.png', caption: 'hello')
