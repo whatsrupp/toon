@@ -15,11 +15,16 @@
         <a id='add-picture-link' href='pictures/new'>Add a Picture</a>
       </div>
       <div class='header-third' id='left'>
+        <div class="header-image">
+        <%= link_to(pictures_url, :class => 'home-link') do %>
+              <%= image_tag 'Pictoon Logo', :id => "header-image" %>
+        <%end%>
+      </div>
 
       </div>
 
       <div class='header-third'>
-
+        
       </div>
 
 

@@ -18,10 +18,10 @@
         </div>
         <div class='interaction-div'>
           <%= link_to(new_picture_like_url(picture), :id =>"like-button-#{picture.id}", :class => 'like-button') do%>
-            <div class='like-image'>Like</div>
+            <%= image_tag 'Like', :class => "like-image" %>
           <%end%>
           <%= link_to(new_picture_comment_url(picture), :id =>"comment-link-#{picture.id}", :class => 'comment-link') do %>
-            <div class='comment-image'>Comment</div>
+            <%= image_tag 'Comment', :class => "comment-image" %>
           <%end%>
         </div>
         <div class='comments'>Comments: <%=picture.comments.first.text if picture.comments.any?%> </div>

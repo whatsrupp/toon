@@ -20,7 +20,7 @@
 * {
   font-family: "Lato";
    font-weight: 100;
-   font-size: 24px;
+   font-size: 20px;
 }
 
 body,html{
@@ -55,16 +55,21 @@ body{
 .form-container{
   height:100%;
   width:100%;
-}
-
-.new_picture {
-  margin:auto;
-  height: 50%;
-  width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items:center;
+}
+#upload-picture-title{
+  text-align: center;
+}
+.field, .actions > input{
+  width: 100%
+}
+
+.new_picture{
+  width: 50%;
+  background-color: honeydew;
 }
 .new_picture > input {
   font-size: 15px;
@@ -77,7 +82,7 @@ body{
 .sticky-header{
   width: 100%;
   height: 100px;
-  background-color: #FCFCC2;
+  background-color: aliceblue;
   position: fixed;
   top:0px;
   z-index:1;
@@ -107,18 +112,20 @@ body{
   width:100%;
 }
 .post-image{
-  height:60%
+  height:60%;
+  background-color:lightslategrey;
 }
 .post{
   width: 80%;
   margin:auto;
-  background-color: yellow;
+  background-color:lightslategrey;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 .post > div {
   font-size: 14px !important;
-  background-color:green;
+  background-color:aliceblue;
+  padding: 5px;
 }
 
 .post-info{
@@ -126,6 +133,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items:center;
+  background-color:lightslategrey;
 
 }
 .interaction-div{
@@ -136,6 +144,11 @@ body{
   width:50%;
   text-align: center;
   font-size: 14px;
+  height:100%;
+}
+
+.interaction-div > img {
+
 }
 
 .post-status{
@@ -143,8 +156,11 @@ width:100%;
 display:flex;
 }
 .like-image{
+  height: 100px;
+  outline: black 1px;
 }
 .comment-image{
+  height: 100px;
 }
 
 .caption-div{
@@ -159,4 +175,13 @@ display:flex;
 .comments{
   width:100%;
   text-align: left;
+}
+
+#header-image{
+  margin:auto;
+  width: 80%;
+}
+
+.header-third > a{
+  height:
 }
