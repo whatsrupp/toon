@@ -18,10 +18,13 @@
         </div>
         <div class='interaction-div'>
           <%= link_to(new_picture_like_url(picture), :id =>"like-button-#{picture.id}", :class => 'like-button') do%>
-            <%= image_tag 'Like', :class => "like-image" %>
+
+            <img class ='like-image' src='https://s3.eu-west-2.amazonaws.com/pictoon-production/assets/pictures/Like.png'>
+
           <%end%>
           <%= link_to(new_picture_comment_url(picture), :id =>"comment-link-#{picture.id}", :class => 'comment-link') do %>
-            <%= image_tag 'Comment', :class => "comment-image" %>
+            <img class ='comment-image' src='https://s3.eu-west-2.amazonaws.com/pictoon-production/assets/pictures/Comment.png'>
+
           <%end%>
         </div>
         <div class='comments'>Comments: <%=picture.comments.first.text if picture.comments.any?%> </div>
